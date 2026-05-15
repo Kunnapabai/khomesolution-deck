@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UX/UI/SEO Audit — khomesolution.co.th</title>
+<meta name="description" content="UX, UI, accessibility and on-page SEO audit of khomesolution.co.th — 6 critical issues, 3 significant, 9 strengths, page-by-page table, Thai content review, 13-item priority fix-list.">
+<meta property="og:title" content="khomesolution.co.th — UX/UI/SEO Audit" />
+<meta property="og:description" content="Page-by-page audit. 6 critical. 13-item priority fix-list." />
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #181b22;
+    --panel-2: #1f232c;
+    --line: #2a2f3a;
+    --text: #e6e9ef;
+    --muted: #98a0ad;
+    --accent: #7cc5ff;
+    --accent-2: #ffd28a;
+    --good: #7ee5a8;
+    --warn: #ffb86b;
+    --bad: #ff7a8a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 56px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 32px; }
+  .badge {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); background: var(--panel); padding: 6px 12px; border-radius: 999px;
+    border: 1px solid var(--line); margin-bottom: 16px;
+  }
+  h1 { font-size: 38px; margin: 0 0 8px; letter-spacing: -.01em; font-weight: 800; }
+  h1 small { font-size: 17px; color: var(--muted); font-weight: 400; letter-spacing: 0; }
+  h2 { font-size: 22px; margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 17px; margin: 24px 0 8px; color: var(--accent-2); }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+  code, kbd { background: var(--panel-2); border: 1px solid var(--line); border-radius: 4px;
+    padding: 1px 6px; font-family: "SF Mono", "JetBrains Mono", Menlo, monospace; font-size: .9em; color: var(--accent-2);
+  }
+  pre { background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 18px; overflow-x: auto; font-size: 13px; line-height: 1.65;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--panel); color: var(--muted); font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase; font-size: 12px;
+  }
+  td.ok { color: var(--good); }
+  td.bad { color: var(--bad); }
+  td.warn { color: var(--warn); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 24px; margin: 14px 0;
+  }
+  .card.critical { border-color: var(--bad); }
+  .card.significant { border-color: var(--warn); }
+  .card.good { border-color: var(--good); }
+  .card.priority { border-color: var(--accent); }
+  .label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+  .label.bad { color: var(--bad); }
+  .label.warn { color: var(--warn); }
+  .label.good { color: var(--good); }
+  .label.priority { color: var(--accent); }
+  ul, ol { margin: 8px 0 16px; padding-left: 22px; }
+  ul li, ol li { margin-bottom: 8px; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--muted); text-align: center;
+  }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px; margin: 16px 0 24px;
+  }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px;
+  }
+  .stat .num { font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .stat .lbl { font-size: 12px; color: var(--muted); margin-top: 6px;
+    letter-spacing: .04em; text-transform: uppercase; font-weight: 600;
+  }
+  .toc {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 24px; margin: 12px 0 24px;
+  }
+  .toc a { display: inline-block; margin-right: 16px; }
+  blockquote { border-left: 3px solid var(--accent-2); padding-left: 16px; margin: 12px 0;
+    color: var(--muted); font-style: italic;
+  }
+  .nav-back {
+    display: inline-block; margin-bottom: 12px; padding: 6px 14px;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px;
+    color: var(--muted); text-decoration: none; font-size: 13px;
+  }
+  .nav-back:hover { color: var(--text); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="nav-back" href="./">← Back to pipeline deck</a>
+
+<header>
+  <span class="badge">Audit · 2026-05-15</span>
+  <h1>UX / UI / SEO Audit<br><small>khomesolution.co.th — homepage · about · contact · blog · (service: 404)</small></h1>
+  <p class="muted">Methodology: real browser navigation via Playwright/chrome-devtools, DOM parsing, fetched all reachable pages, checked viewport meta + canonical + Open Graph + JSON-LD + alt text + heading hierarchy + Thai content readability.</p>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="num" style="color: var(--bad)">6</div><div class="lbl">Critical issues</div></div>
+    <div class="stat"><div class="num" style="color: var(--warn)">3</div><div class="lbl">Significant</div></div>
+    <div class="stat"><div class="num" style="color: var(--good)">9</div><div class="lbl">Strengths</div></div>
+    <div class="stat"><div class="num">13</div><div class="lbl">Priority fixes</div></div>
+    <div class="stat"><div class="num">4 / 5</div><div class="lbl">Pages reachable</div></div>
+  </div>
+</header>
+
+<div class="toc">
+  <strong>On this page:</strong><br>
+  <a href="#critical">🔴 Critical</a>
+  <a href="#significant">🟡 Significant</a>
+  <a href="#good">🟢 What's good</a>
+  <a href="#pagetable">📄 Page table</a>
+  <a href="#thai">🇹🇭 Thai content</a>
+  <a href="#priority">🎯 Priority fixes</a>
+  <a href="#next">💡 Next moves</a>
+</div>
+
+<h2 id="critical">🔴 Critical (affecting SEO + social shares right now)</h2>
+
+<div class="card critical">
+  <div class="label bad">1 · Empty &lt;title&gt; tag</div>
+  <p><strong>Pages:</strong> <code>/</code>, <code>/about/</code>, <code>/contact/</code> (3 of 4 main pages)</p>
+  <p><strong>Impact:</strong> Browser tab shows blank text. Google SERP titles are broken. Lost ranking signal.</p>
+  <p><strong>Evidence:</strong> <code>document.title.length === 0</code> on 3 pages. Only <code>/blog/</code> has a working title.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">2 · Missing &lt;meta name="description"&gt;</div>
+  <p><strong>Pages:</strong> ALL 4 reachable pages.</p>
+  <p><strong>Impact:</strong> Google auto-generates SERP snippets (suboptimal, no CTR control).</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">3 · Wrong <code>&lt;html lang="en-US"&gt;</code></div>
+  <p><strong>Pages:</strong> ALL 4 pages.</p>
+  <p><strong>Impact:</strong> Content is Thai but tag claims English — confuses Google language signal AND screen-reader pronunciation.</p>
+  <p><strong>Fix:</strong> Change to <code>lang="th"</code> or <code>lang="th-TH"</code>.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">4 · /service/ and /services/ → 404</div>
+  <p><strong>Impact:</strong> The Service page was assumed to exist but doesn't. Anyone linking or expecting it gets a dead page.</p>
+  <p><strong>Decision needed:</strong> Either create <code>/service/</code> with real content, or remove from any nav planning.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">5 · og:image MISSING</div>
+  <p><strong>Pages:</strong> ALL 4 pages.</p>
+  <p><strong>Impact:</strong> Facebook / LINE / Twitter shares show no preview image. Click-through drops sharply.</p>
+  <p><strong>Fix:</strong> Set a 1200×630 PNG/JPG per page (or default site-wide).</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">6 · og:description MISSING</div>
+  <p><strong>Pages:</strong> ALL 4 pages.</p>
+  <p><strong>Impact:</strong> Social shares show no description, just title + URL.</p>
+</div>
+
+<h2 id="significant">🟡 Significant (should fix soon)</h2>
+
+<div class="card significant">
+  <div class="label warn">7 · Alt text coverage 29% on homepage</div>
+  <p>2 of 7 homepage images have alt attributes. 5 images have empty/missing alt → no image search ranking, fails accessibility.</p>
+  <p><strong>Fix:</strong> Add Thai descriptive alt text per image — e.g. <code>alt="แผ่นหลังคาโปร่งแสง ShinkoLite รุ่น Heat-Cut"</code>.</p>
+</div>
+
+<div class="card significant">
+  <div class="label warn">8 · H1 contains tab whitespace (<code>\t\t\t\t</code>)</div>
+  <p>All H1s contain a 4-tab gap between segments — e.g. <code>"KUNNAPAB HOME SOLUTION\t\t\t\tคุณภาพ โฮมโซลูชั่น"</code>.</p>
+  <p><strong>Likely cause:</strong> WordPress theme template uses <code>&lt;br&gt;</code> or block-layout markup with literal tabs instead of clean structure.</p>
+  <p><strong>Fix:</strong> Find &amp; remove <code>\t</code> in the theme PHP / Gutenberg blocks. Or replace tabs with a <code>&lt;br&gt;</code>.</p>
+</div>
+
+<div class="card significant">
+  <div class="label warn">9 · /about/ page has zero images</div>
+  <p>About pages typically need team photos, brand-story imagery, or proof-of-work for trust. Currently text-only.</p>
+  <p><strong>Suggested:</strong> Add 2–3 images — team photo, showroom, sample installation.</p>
+</div>
+
+<h2 id="good">🟢 What's good (keep doing)</h2>
+
+<div class="card good">
+  <ul>
+    <li>✅ <strong>Viewport meta</strong> set on all pages (mobile-ready foundation)</li>
+    <li>✅ <strong>Canonical URL</strong> set per page (no duplicate-content issues)</li>
+    <li>✅ <strong>Schema.org JSON-LD</strong> present (1 schema per page, <code>WebPage</code> type)</li>
+    <li>✅ <strong>og:title</strong> set on all pages (FB title preview works)</li>
+    <li>✅ <strong>twitter:card</strong> = <code>summary_large_image</code></li>
+    <li>✅ <strong>WordPress 6.9.4</strong> — current, secure</li>
+    <li>✅ <strong>Burger menu</strong> on mobile — correct UX pattern</li>
+    <li>✅ <strong>Hero design</strong> clean and readable; Thai subtitle in orange/red accent is eye-catching</li>
+    <li>✅ <strong>Trust badges + footer</strong> complete</li>
+  </ul>
+</div>
+
+<h2 id="pagetable">📄 Page-by-page summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Status</th>
+      <th>&lt;title&gt;</th>
+      <th>meta_desc</th>
+      <th>og:image</th>
+      <th>H1 (cleaned)</th>
+      <th>imgs / alt&nbsp;✗</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/</code></td>
+      <td class="ok">200</td>
+      <td class="bad">empty</td>
+      <td class="bad">—</td>
+      <td class="bad">—</td>
+      <td>KUNNAPAB HOME SOLUTION · คุณภาพ โฮมโซลูชั่น</td>
+      <td>7 / 5</td>
+      <td class="ok">1</td>
+    </tr>
+    <tr>
+      <td><code>/about/</code></td>
+      <td class="ok">200</td>
+      <td class="bad">empty</td>
+      <td class="bad">—</td>
+      <td class="bad">—</td>
+      <td>Building partnerships that stand the test of time.</td>
+      <td>0 (none!)</td>
+      <td class="ok">1</td>
+    </tr>
+    <tr>
+      <td><code>/services/</code></td>
+      <td class="bad"><strong>404</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code>/contact/</code></td>
+      <td class="ok">200</td>
+      <td class="bad">empty</td>
+      <td class="bad">—</td>
+      <td class="bad">—</td>
+      <td>Talk to a specialist — we'll respond within a day.</td>
+      <td>1 / 0</td>
+      <td class="ok">1</td>
+    </tr>
+    <tr>
+      <td><code>/blog/</code></td>
+      <td class="ok">200</td>
+      <td class="ok">Blog - K HOME SOLUTION</td>
+      <td class="bad">—</td>
+      <td class="bad">—</td>
+      <td>บทความเกี่ยวกับ หลังคาและประตูหน้าต่าง</td>
+      <td>0 (CSS bg?)</td>
+      <td class="ok">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="thai">🇹🇭 Thai content quality (homepage)</h2>
+
+<h3>H1 body</h3>
+<pre>"KUNNAPAB HOME SOLUTION    คุณภาพ โฮมโซลูชั่น"</pre>
+<p>⚠️ Tab characters between brand name and "คุณภาพ โฮมโซลูชั่น" — visually rendered as 2 lines, but code uses literal <code>\t\t\t\t</code> instead of clean structure.</p>
+
+<h3>Hero body</h3>
+<blockquote>"จำหน่ายผลิตภัณฑ์ที่และบริการคุณภาพที่เกี่ยวกับบ้าน โดยเรียนเชื่อมโยงอย่างมืออาชีพมีประสบการณ์กว่า 15 ปี เป็นตัวแทนจำหน่ายและติดตั้งผลิตภัณฑ์เกี่ยวกับ หน้าต่าง TOSTEM LIXIL และแผ่นหลังคาอะคริลิค ShinkoLite"</blockquote>
+
+<ul>
+  <li>🟡 <strong>"ผลิตภัณฑ์ที่และบริการ"</strong> → suggest <strong>"ผลิตภัณฑ์และบริการ"</strong> (drop "ที่")</li>
+  <li>🟡 <strong>"โดยเรียนเชื่อมโยง"</strong> → "เรียนเชื่อมโยง" sounds awkward; suggest <strong>"ด้วยการเชื่อมโยง"</strong> or <strong>"ผ่านการเชื่อมต่อ"</strong></li>
+  <li>🟢 Rest of paragraph reads cleanly; brand names (TOSTEM, LIXIL, ShinkoLite) are correct</li>
+</ul>
+
+<h2 id="priority">🎯 Priority fix-list</h2>
+
+<div class="card priority">
+  <div class="label priority">P0 — Do today · ~30 min · huge SEO gain · free</div>
+  <ol>
+    <li>Set <code>&lt;title&gt;</code> on Home / About / Contact (currently empty!)</li>
+    <li>Set <code>&lt;meta name="description"&gt;</code> on all 4 pages</li>
+    <li>Change <code>&lt;html lang="en-US"&gt;</code> → <code>"th"</code> or <code>"th-TH"</code></li>
+    <li>Decide on <code>/service/</code> — create or remove from any nav planning</li>
+  </ol>
+</div>
+
+<div class="card priority">
+  <div class="label priority">P1 — Do this week · 1–2 hrs</div>
+  <ol start="5">
+    <li>Set <code>og:image</code> (1200×630) for social shares</li>
+    <li>Set <code>og:description</code> per page</li>
+    <li>Add Thai alt text to 5 homepage images</li>
+    <li>Fix H1 tab whitespace in theme template (find &amp; remove <code>\t</code> in PHP)</li>
+    <li>Add 2–3 trust images to <code>/about/</code> (team / showroom / installations)</li>
+  </ol>
+</div>
+
+<div class="card priority">
+  <div class="label priority">P2 — Polish · when time permits</div>
+  <ol start="10">
+    <li>Fix Thai typos in homepage hero ("ผลิตภัณฑ์ที่และบริการ" → "ผลิตภัณฑ์และบริการ")</li>
+    <li>Add <code>LocalBusiness</code> schema (currently only <code>WebPage</code>)</li>
+    <li>Mobile screenshot audit — 5 pages × 3 viewport sizes</li>
+    <li>Run Lighthouse for Core Web Vitals score</li>
+  </ol>
+</div>
+
+<h2 id="next">💡 Next moves</h2>
+
+<p>The root issue is <strong>on-page SEO fundamentals missing</strong> (title / meta / lang) — nothing technical is broken, just content + config gaps. Fixable in 30 minutes with WP Admin login and a Yoast / RankMath plugin.</p>
+
+<p>Suggested next actions:</p>
+<ul>
+  <li><strong>P0 fix</strong> — apply fixes 1–4 directly via WP Admin (~30 min, biggest SEO impact)</li>
+  <li><strong>Deep audit</strong> — Lighthouse + mobile screenshots across 5 viewport sizes (~30 min)</li>
+  <li><strong>Draft Thai content</strong> — rewrite meta descriptions per page + fix typos (~15 min, no login needed)</li>
+  <li><strong>Create /service/</strong> — design + draft full page (~30–45 min)</li>
+</ul>
+
+<footer>
+  Audit run 2026-05-15 · Generated by <strong>Ken Oracle 🤲</strong> — Quiet Hand · One hand · One tool at a time<br>
+  Findings based on live HTTP fetches of khomesolution.co.th — methodology reproducible via Playwright/chrome-devtools.
+</footer>
+
+</div>
+</body>
+</html>
