@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UX/UI/SEO Audit — rikind.com/th (Thai-language pages)</title>
+<meta name="description" content="UX, UI, accessibility and on-page SEO audit of rikind.com/th — 9 Thai-language pages of RIK Industries (industrial brakes &amp; clutches). 7 critical issues, 3 significant, page-by-page table, 12-item priority fix-list.">
+<meta property="og:title" content="rikind.com/th — UX/UI/SEO Audit" />
+<meta property="og:description" content="9 Thai pages audited. 7 critical issues. 12-item priority fix-list." />
+<meta property="og:locale" content="th_TH" />
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #181b22;
+    --panel-2: #1f232c;
+    --line: #2a2f3a;
+    --text: #e6e9ef;
+    --muted: #98a0ad;
+    --accent: #7cc5ff;
+    --accent-2: #ffd28a;
+    --good: #7ee5a8;
+    --warn: #ffb86b;
+    --bad: #ff7a8a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 56px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 32px; }
+  .badge {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); background: var(--panel); padding: 6px 12px; border-radius: 999px;
+    border: 1px solid var(--line); margin-bottom: 16px;
+  }
+  h1 { font-size: 38px; margin: 0 0 8px; letter-spacing: -.01em; font-weight: 800; }
+  h1 small { font-size: 17px; color: var(--muted); font-weight: 400; letter-spacing: 0; display: block; margin-top: 6px; }
+  h2 { font-size: 22px; margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 17px; margin: 24px 0 8px; color: var(--accent-2); }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+  code, kbd { background: var(--panel-2); border: 1px solid var(--line); border-radius: 4px;
+    padding: 1px 6px; font-family: "SF Mono", "JetBrains Mono", Menlo, monospace; font-size: .9em; color: var(--accent-2);
+  }
+  pre { background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 18px; overflow-x: auto; font-size: 13px; line-height: 1.65;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--panel); color: var(--muted); font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase; font-size: 11px;
+  }
+  td.ok { color: var(--good); }
+  td.bad { color: var(--bad); }
+  td.warn { color: var(--warn); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 24px; margin: 14px 0;
+  }
+  .card.critical { border-color: var(--bad); }
+  .card.significant { border-color: var(--warn); }
+  .card.good { border-color: var(--good); }
+  .card.priority { border-color: var(--accent); }
+  .label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+  .label.bad { color: var(--bad); }
+  .label.warn { color: var(--warn); }
+  .label.good { color: var(--good); }
+  .label.priority { color: var(--accent); }
+  ul, ol { margin: 8px 0 16px; padding-left: 22px; }
+  ul li, ol li { margin-bottom: 8px; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--muted); text-align: center;
+  }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px; margin: 16px 0 24px;
+  }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px;
+  }
+  .stat .num { font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .stat .lbl { font-size: 12px; color: var(--muted); margin-top: 6px;
+    letter-spacing: .04em; text-transform: uppercase; font-weight: 600;
+  }
+  .toc {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 24px; margin: 12px 0 24px;
+  }
+  .toc a { display: inline-block; margin-right: 16px; }
+  blockquote { border-left: 3px solid var(--accent-2); padding-left: 16px; margin: 12px 0;
+    color: var(--muted); font-style: italic;
+  }
+  .nav-back {
+    display: inline-block; margin-bottom: 12px; padding: 6px 14px;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px;
+    color: var(--muted); text-decoration: none; font-size: 13px;
+  }
+  .nav-back:hover { color: var(--text); border-color: var(--accent); }
+  .flag { font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="nav-back" href="./">← Other audits</a>
+
+<header>
+  <span class="badge">Audit · 2026-06-05</span>
+  <h1>UX / UI / SEO Audit<br><small>rikind.com/th · RIK Industries (Thailand) · Industrial brakes &amp; clutches</small></h1>
+  <p class="muted">Methodology: real browser navigation via Playwright/chrome-devtools, DOM parsing of 9 key /th/ pages (Home · Brands index · 2 brand details · Applications index · 3 application details · Services), checked viewport · canonical · Open Graph · JSON-LD · alt text · heading hierarchy · Thai vs English consistency.</p>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="num" style="color: var(--bad)">7</div><div class="lbl">Critical issues</div></div>
+    <div class="stat"><div class="num" style="color: var(--warn)">3</div><div class="lbl">Significant</div></div>
+    <div class="stat"><div class="num" style="color: var(--good)">6</div><div class="lbl">Strengths</div></div>
+    <div class="stat"><div class="num">12</div><div class="lbl">Priority fixes</div></div>
+    <div class="stat"><div class="num">9 / 9</div><div class="lbl">Pages reachable</div></div>
+  </div>
+</header>
+
+<div class="toc">
+  <strong>On this page:</strong><br>
+  <a href="#critical">🔴 Critical</a>
+  <a href="#significant">🟡 Significant</a>
+  <a href="#good">🟢 What's good</a>
+  <a href="#pagetable">📄 Page table</a>
+  <a href="#rootcause">💡 Root cause</a>
+  <a href="#priority">🎯 Priority fixes</a>
+  <a href="#fixmenu">🛠️ Fix menu</a>
+</div>
+
+<h2 id="critical">🔴 Critical (direct SEO + accessibility impact)</h2>
+
+<div class="card critical">
+  <div class="label bad">1 · All <code>&lt;html lang="en-US"&gt;</code> on Thai pages</div>
+  <p><strong>Pages:</strong> ALL 9 /th/ pages.</p>
+  <p><strong>Impact:</strong> Google ranks pages as English content — Thai-language search visibility drops. Screen readers pronounce Thai text with English phonetics → accessibility fail.</p>
+  <p><strong>Fix:</strong> Change to <code>lang="th"</code> on every /th/ template.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">2 · <code>og:locale = en_US</code> on Thai pages</div>
+  <p><strong>Pages:</strong> ALL 9 /th/ pages.</p>
+  <p><strong>Impact:</strong> Facebook / LINE / Twitter shares treat the content as English. Wrong locale-targeted preview rendering, wrong canonical clusters.</p>
+  <p><strong>Fix:</strong> Set <code>&lt;meta property="og:locale" content="th_TH"&gt;</code>.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">3 · 6 of 9 pages have ENGLISH <code>&lt;title&gt;</code></div>
+  <p><strong>Pages:</strong> Home, Brands, Yokohama, Ogura Clutch, Applications, Services.</p>
+  <p><strong>Examples:</strong></p>
+  <pre>"Home - RIK Industries Pte Ltd - Thailand"
+"Brands - RIK Industries Pte Ltd - Thailand"
+"Services - RIK Industries Pte Ltd - Thailand"</pre>
+  <p><strong>Impact:</strong> Thai-language Google users searching "คลัตช์อุตสาหกรรม" or "เบรกอุตสาหกรรม" won't see these in results. Lost top-of-funnel traffic.</p>
+  <p><strong>Note:</strong> 3 pages (cement-mining, marine, printing) DO have Thai titles — content team CAN do this. Just apply consistently.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">4 · No <code>hreflang</code> alternate links</div>
+  <p><strong>Pages:</strong> ALL 9 /th/ pages.</p>
+  <p><strong>Impact:</strong> Google doesn't know that /th/applications/marine/ is the Thai version of /en/applications/marine/ → duplicate-content risk + lost link equity between language variants.</p>
+  <p><strong>Fix:</strong></p>
+  <pre>&lt;link rel="alternate" hreflang="en" href="https://rikind.com/en/applications/marine/" /&gt;
+&lt;link rel="alternate" hreflang="th" href="https://rikind.com/th/applications/marine/" /&gt;
+&lt;link rel="alternate" hreflang="x-default" href="https://rikind.com/" /&gt;</pre>
+</div>
+
+<div class="card critical">
+  <div class="label bad">5 · 3 pages have NO <code>&lt;h1&gt;</code> tag</div>
+  <p><strong>Pages:</strong> /th/brands/ · /th/applications/ · /th/services/ (all "index" pages).</p>
+  <p><strong>Impact:</strong> No primary heading = critical accessibility + SEO miss. Search engines and screen readers can't identify the page's main topic.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">6 · 2 pages missing <code>og:image</code></div>
+  <p><strong>Pages:</strong> /th/applications/ · /th/services/.</p>
+  <p><strong>Impact:</strong> Social shares show no preview image — sharply lower CTR on Facebook / LINE.</p>
+</div>
+
+<div class="card critical">
+  <div class="label bad">7 · Brands index meta description is only 10 chars</div>
+  <p><strong>Value:</strong> <code>"แบรนด์เด่น"</code> (10 chars total).</p>
+  <p><strong>Impact:</strong> Google won't use this as the SERP snippet — auto-generates from page content instead, losing CTR control.</p>
+  <p><strong>Fix:</strong> Expand to 140-160 chars with brand names and value props.</p>
+</div>
+
+<h2 id="significant">🟡 Significant</h2>
+
+<div class="card significant">
+  <div class="label warn">8 · Alt text coverage catastrophic</div>
+  <p>80-100% of images on most pages have missing or empty alt attributes:</p>
+  <ul>
+    <li>Home: 18 of 20 missing (90%)</li>
+    <li>Brands index: 18 of 20 missing (90%)</li>
+    <li>Applications index: 4 of 4 missing (100%)</li>
+    <li>Services: 4 of 4 missing (100%)</li>
+    <li>Marine, Printing: 6 of 6 each (100%)</li>
+  </ul>
+  <p><strong>Impact:</strong> Image search miss · accessibility fail · LCP signal weakened.</p>
+</div>
+
+<div class="card significant">
+  <div class="label warn">9 · Inconsistent title language</div>
+  <p>3 application sub-pages already have Thai titles. The other 6 don't. Content team capability is proven — just needs to be applied across the rest.</p>
+</div>
+
+<div class="card significant">
+  <div class="label warn">10 · <code>og:title</code> = <code>&lt;title&gt;</code> (copy-paste)</div>
+  <p>Social titles are identical to browser-tab titles. Optimization opportunity: write punchier social-specific titles for higher engagement.</p>
+</div>
+
+<h2 id="good">🟢 What's good (keep doing)</h2>
+
+<div class="card good">
+  <ul>
+    <li>✅ Viewport meta set on all pages — mobile foundation correct</li>
+    <li>✅ Canonical URLs on all 9 pages — no duplicate-content within Thai locale</li>
+    <li>✅ 2 Schema.org JSON-LD blocks per page — good structured-data presence</li>
+    <li>✅ Twitter card = <code>summary_large_image</code> on all pages</li>
+    <li>✅ All 9 pages return HTTP 200 — no broken Thai routes</li>
+    <li>✅ Strong internal linking (100-140 links per page) — good crawlability</li>
+  </ul>
+</div>
+
+<h2 id="pagetable">📄 Page-by-page summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Title</th>
+      <th>lang</th>
+      <th>og:image</th>
+      <th>H1</th>
+      <th>Alt missing</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>/th/</code></td><td class="bad">🇬🇧 EN "Home - RIK..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="ok">1</td><td class="bad">18 / 20</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/brands/</code></td><td class="bad">🇬🇧 EN "Brands - RIK..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="bad">0</td><td class="bad">18 / 20</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/brands/yokohama/</code></td><td class="bad">🇬🇧 EN "Air Bellows/Spring..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="ok">1</td><td class="warn">4 / 9</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/brands/ogura-clutch/</code></td><td class="bad">🇬🇧 EN "Ogura Clutch..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="ok">1</td><td class="warn">4 / 5</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/applications/</code></td><td class="bad">🇬🇧 EN "Applications..."</td><td class="bad">en-US</td><td class="bad">❌</td><td class="bad">0</td><td class="bad">4 / 4</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/applications/cement-mining/</code></td><td class="ok">🇹🇭 TH "ปูนซีเมนต์..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="bad">0</td><td class="warn">5 / 6</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/applications/marine/</code></td><td class="ok">🇹🇭 TH "เดินเรือ..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="ok">1</td><td class="bad">6 / 6</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/applications/printing/</code></td><td class="ok">🇹🇭 TH "สิ่งพิมพ์..."</td><td class="bad">en-US</td><td class="ok">✅</td><td class="ok">1</td><td class="bad">6 / 6</td><td class="ok">2</td></tr>
+    <tr><td><code>/th/services/</code></td><td class="bad">🇬🇧 EN "Services..."</td><td class="bad">en-US</td><td class="bad">❌</td><td class="bad">0</td><td class="bad">4 / 4</td><td class="ok">2</td></tr>
+  </tbody>
+</table>
+
+<h2 id="rootcause">💡 Root cause</h2>
+
+<p>The site appears to be <strong>WordPress multisite where the Thai sub-site shares a template hard-coded with English locale metadata</strong>. The page content is in Thai (rendered from Thai post records), but <code>&lt;html lang&gt;</code>, <code>og:locale</code>, and several auto-generated titles come from the theme/template layer which assumes English.</p>
+
+<blockquote>
+ภาษา = ปัจจุบันมี 2 source-of-truth ที่ขัดกัน:<br>
+&nbsp;&nbsp;Page CONTENT: ภาษาไทย ✅<br>
+&nbsp;&nbsp;Page METADATA: ภาษาอังกฤษ ❌<br>
+→ WordPress + Polylang/WPML plugin มักจัดการนี้ผ่าน hooks. แก้ที่ theme ครั้งเดียว = แก้ทั้งหมด
+</blockquote>
+
+<h2 id="priority">🎯 Priority fix-list</h2>
+
+<div class="card priority">
+  <div class="label priority">P0 — Do today · ~1-2 hrs · huge SEO gain</div>
+  <ol>
+    <li>Change <code>&lt;html lang="en-US"&gt;</code> → <code>"th"</code> on every /th/ page</li>
+    <li>Change <code>og:locale</code> → <code>"th_TH"</code> on every /th/ page</li>
+    <li>Translate titles to Thai on 6 pages (Home · Brands · Yokohama · Ogura Clutch · Applications · Services)</li>
+    <li>Add <code>&lt;h1&gt;</code> to Brands index · Applications index · Services</li>
+    <li>Set <code>og:image</code> on /th/applications/ + /th/services/</li>
+  </ol>
+</div>
+
+<div class="card priority">
+  <div class="label priority">P1 — Do this week · 2-4 hrs</div>
+  <ol start="6">
+    <li>Add <code>hreflang</code> alternate links — pair every /en/ page with its /th/ counterpart + <code>x-default</code></li>
+    <li>Bulk-add Thai alt text to all images (~80 images sitewide)</li>
+    <li>Expand /th/brands/ meta description (10 → 150 chars)</li>
+  </ol>
+</div>
+
+<div class="card priority">
+  <div class="label priority">P2 — Polish</div>
+  <ol start="9">
+    <li>Different <code>og:title</code> vs <code>&lt;title&gt;</code> — optimize for social CTR</li>
+    <li>Lighthouse audit for Core Web Vitals (LCP / CLS / INP)</li>
+    <li>Mobile screenshot pass — 5 pages × 3 viewport sizes</li>
+    <li>Schema.org enrichment — add Product / Service / Organization types per page</li>
+  </ol>
+</div>
+
+<h2 id="fixmenu">🛠️ Fix menu (Ken approves per item)</h2>
+
+<table>
+  <thead><tr><th>#</th><th>Fix</th><th>Access needed</th><th>ETA</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>lang attr + og:locale</td><td>WP admin + theme edit</td><td>15 min</td></tr>
+    <tr><td>2</td><td>Translate 6 titles to Thai</td><td>WP admin (Yoast/RankMath per page)</td><td>15 min</td></tr>
+    <tr><td>3</td><td>Add H1 to 3 index pages</td><td>WP admin (page editor)</td><td>10 min</td></tr>
+    <tr><td>4</td><td>Set og:image on 2 pages</td><td>WP admin (featured image)</td><td>5 min</td></tr>
+    <tr><td>5</td><td>Bulk Thai alt text</td><td>Claude drafts → Ken pastes</td><td>30-60 min</td></tr>
+    <tr><td>6</td><td>hreflang setup</td><td>WP plugin or theme edit</td><td>30 min</td></tr>
+  </tbody>
+</table>
+
+<p><strong>No fixes will run without explicit per-item approval.</strong></p>
+
+<footer>
+  Audit run 2026-06-05 · Generated by <strong>Ken Oracle 🤲</strong> — Quiet Hand · One hand · One tool at a time<br>
+  Findings based on live HTTP fetches of 9 rikind.com/th pages. Methodology reproducible via Playwright/chrome-devtools.
+</footer>
+
+</div>
+</body>
+</html>
