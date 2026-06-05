@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>เว็บไซต์ rikind.com/th — รายงานสำหรับผู้บริหาร</title>
+<meta name="description" content="ตรวจสอบเว็บไซต์ rikind.com/th ภาษาที่ผู้บริหารอ่านเข้าใจได้ — 7 ปัญหาสำคัญที่ทำให้ลูกค้าหาเจอน้อยลง และวิธีแก้พร้อมเวลาที่ใช้">
+<meta property="og:title" content="rikind.com/th — รายงานผู้บริหาร" />
+<meta property="og:description" content="7 ปัญหาสำคัญ + 12 วิธีแก้ พร้อมผลกระทบทางธุรกิจ" />
+<meta property="og:locale" content="th_TH" />
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #181b22;
+    --panel-2: #1f232c;
+    --line: #2a2f3a;
+    --text: #e6e9ef;
+    --muted: #98a0ad;
+    --accent: #7cc5ff;
+    --accent-2: #ffd28a;
+    --good: #7ee5a8;
+    --warn: #ffb86b;
+    --bad: #ff7a8a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 36px; }
+  .badge {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); background: var(--panel); padding: 6px 12px; border-radius: 999px;
+    border: 1px solid var(--line); margin-bottom: 16px;
+  }
+  h1 { font-size: 36px; margin: 0 0 8px; letter-spacing: -.01em; font-weight: 800; line-height: 1.25; }
+  h1 small { font-size: 17px; color: var(--muted); font-weight: 400; letter-spacing: 0; display: block; margin-top: 8px; }
+  h2 { font-size: 24px; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 18px; margin: 24px 0 8px; color: var(--accent-2); }
+  p, li { color: var(--text); font-size: 16px; }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px; margin: 16px 0 24px;
+  }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 18px;
+  }
+  .stat .num { font-size: 30px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .stat .lbl { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 26px; margin: 18px 0;
+  }
+  .card.problem { border-left: 4px solid var(--bad); }
+  .card.warning { border-left: 4px solid var(--warn); }
+  .card.good { border-left: 4px solid var(--good); }
+  .card.priority { border-left: 4px solid var(--accent); }
+  .problem-num { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700;
+    color: var(--bad); margin-bottom: 8px;
+  }
+  .warning-num { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700;
+    color: var(--warn); margin-bottom: 8px;
+  }
+  .qa-q { font-weight: 700; color: var(--text); font-size: 17px; margin-bottom: 6px; }
+  .qa-a { color: var(--muted); margin-bottom: 12px; }
+  .impact { background: var(--panel-2); padding: 12px 16px; border-radius: 8px;
+    margin: 12px 0; font-size: 15px; border-left: 3px solid var(--accent-2);
+  }
+  .impact strong { color: var(--accent-2); }
+  .fix { background: rgba(124, 197, 255, 0.08); padding: 12px 16px; border-radius: 8px;
+    margin: 12px 0 0; font-size: 15px; border-left: 3px solid var(--accent);
+  }
+  .fix strong { color: var(--accent); }
+  .nav-back {
+    display: inline-block; margin-bottom: 16px; padding: 6px 14px;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px;
+    color: var(--muted); text-decoration: none; font-size: 13px;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { background: var(--panel); color: var(--muted); font-weight: 600; }
+  .priority-row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .priority-row:last-child { border-bottom: 0; }
+  .pri-num { font-weight: 800; font-size: 22px; color: var(--accent); min-width: 40px; }
+  .pri-title { font-weight: 600; }
+  .pri-meta { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--muted); text-align: center;
+  }
+  .other-version { background: rgba(255, 210, 138, 0.08); border: 1px solid var(--warn);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+  }
+  .other-version a { color: var(--warn); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="nav-back" href="./">← รายงานอื่นๆ</a>
+
+<header>
+  <span class="badge">รายงานสำหรับผู้บริหาร · 5 มิถุนายน 2026</span>
+  <h1>ตรวจสอบเว็บไซต์ rikind.com/th<br><small>ภาษาธุรกิจ · ไม่มีศัพท์เทคนิค · เน้นผลกระทบและวิธีแก้</small></h1>
+  <p class="muted">รายงานนี้สรุปสิ่งที่พบจากการตรวจสอบหน้าเว็บภาษาไทย 9 หน้าของ RIK Industries — เน้นว่า <strong>ลูกค้าจะหาเจอยากขึ้นแค่ไหน</strong> และจะ <strong>เสียโอกาสยอดขายตรงไหน</strong></p>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="num" style="color: var(--bad)">7</div><div class="lbl">ปัญหาสำคัญ ทำให้ลูกค้าหาเจอยาก</div></div>
+    <div class="stat"><div class="num" style="color: var(--warn)">3</div><div class="lbl">เรื่องที่ควรปรับ</div></div>
+    <div class="stat"><div class="num" style="color: var(--good)">6</div><div class="lbl">เรื่องดีอยู่แล้ว</div></div>
+    <div class="stat"><div class="num">~7 ชม.</div><div class="lbl">เวลาที่ใช้แก้ทั้งหมด</div></div>
+  </div>
+
+  <div class="other-version">
+    💻 สำหรับ developer/ทีม IT — ดูเวอร์ชันเทคนิคได้ที่ <a href="audit-rikind-th.html">audit-rikind-th.html</a> (รหัสและคำสั่งครบ)
+  </div>
+</header>
+
+<h2>📌 สรุปสั้นที่สุด</h2>
+
+<div class="card">
+  <p style="font-size: 17px;">เว็บไซต์ <strong>เนื้อหาภาษาไทยดีอยู่แล้ว</strong> ✅ แต่ <strong>ป้ายบอก Google และ Facebook ว่า "นี่คือเว็บไทย"</strong> ยังไม่ถูกตั้งค่า → ผลคือ:</p>
+  <ul>
+    <li>🔍 <strong>Google คิดว่าเว็บนี้เป็นภาษาอังกฤษ</strong> → คนไทยพิมพ์ค้นหาภาษาไทย อาจไม่เจอเว็บคุณ</li>
+    <li>📱 <strong>ตอนแชร์ Facebook/LINE</strong> → ระบบจัดเป็น content ภาษาอังกฤษ → คนไทยเห็นแล้วอาจไม่คลิก</li>
+    <li>🏷️ <strong>ชื่อหน้า 6 จาก 9 หน้ายังเป็นภาษาอังกฤษ</strong> (เช่น "Home - RIK Industries...") → ลูกค้าไทยค้นหาก็ไม่ตรง keyword</li>
+  </ul>
+  <p style="font-size: 17px; margin-top: 16px;">ข่าวดี: <strong>แก้ทุกอย่างได้ใน 1 สัปดาห์ ใช้เวลารวมประมาณ 5-7 ชั่วโมง</strong> ส่วนใหญ่เป็นการตั้งค่าใน WordPress + แปลข้อความ</p>
+</div>
+
+<h2>🔴 7 ปัญหาสำคัญ — ทำให้ลูกค้าหาคุณเจอยาก</h2>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 1</div>
+  <div class="qa-q">เว็บบอก Google ว่า "เว็บนี้เป็นภาษาอังกฤษ" ทั้งที่เป็นภาษาไทย</div>
+  <p class="qa-a">ในโค้ดของทุกหน้าใต้ /th/ มีคำสั่งหนึ่งที่ระบุว่าเว็บนี้เป็น "en-US" (English) — แต่จริงๆ ใส่ภาษาไทยไว้</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> Google ใช้ป้ายนี้ตัดสินว่าจะแสดงเว็บคุณให้ใครเห็น → คนไทยค้นหาเป็นภาษาไทยอาจไม่เห็น เว็บคุณเลย (อันดับตก)
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เปลี่ยน "en-US" เป็น "th" ใน theme ของ WordPress · 15 นาที · ทีม IT แก้ได้
+  </div>
+</div>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 2</div>
+  <div class="qa-q">ตอนแชร์ Facebook/LINE ระบบเห็นเป็น "ภาษาอังกฤษ"</div>
+  <p class="qa-a">มีอีก 1 ป้ายเฉพาะสำหรับ Facebook/LINE/Twitter ที่บอกว่าเป็น "en_US" — เหมือนปัญหา 1 แต่อีกป้ายหนึ่ง</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> Facebook อาจไม่โชว์เว็บนี้ในกลุ่ม "เนื้อหาไทย" → preview ภาพ + คำอธิบายอาจดูแปลก → คนไทยเห็นแล้วลังเลคลิก
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เปลี่ยนเป็น "th_TH" · ทำพร้อมปัญหา 1 · รวมแล้ว 15 นาที
+  </div>
+</div>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 3</div>
+  <div class="qa-q">ชื่อหน้าเว็บ 6 จาก 9 หน้ายังเป็นภาษาอังกฤษ</div>
+  <p class="qa-a">ลองดูตัวอย่าง ชื่อหน้าที่ปรากฏใน tab ของ browser และผลค้นหา Google:</p>
+  <ul>
+    <li>หน้า Home: "Home - RIK Industries Pte Ltd - Thailand" (ภาษาอังกฤษ ❌)</li>
+    <li>หน้า Brands: "Brands - RIK Industries Pte Ltd - Thailand" (ภาษาอังกฤษ ❌)</li>
+    <li>หน้า Services: "Services - RIK Industries Pte Ltd - Thailand" (ภาษาอังกฤษ ❌)</li>
+    <li>หน้า ปูนซีเมนต์: "ปูนซีเมนต์และเหมืองแร่..." (ภาษาไทย ✅ ทำได้ดี)</li>
+  </ul>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> ลูกค้าไทยพิมพ์ค้นหา "คลัตช์อุตสาหกรรม" หรือ "เบรกอุตสาหกรรม" ใน Google ไทย — ระบบเทียบไม่เจอชื่อ keyword ภาษาไทยในชื่อหน้าเว็บคุณ → อันดับต่ำ → คนคลิกน้อย
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เขียนชื่อหน้าใหม่เป็นภาษาไทยทั้ง 6 หน้า · 15 นาที (ผมเตรียมร่างให้คุณแล้วใน Discord — เลือกใช้หรือแก้ไขตามต้องการ)
+  </div>
+</div>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 4</div>
+  <div class="qa-q">Google ยังไม่รู้ว่าหน้าไหนเป็น "ภาษาไทย" หน้าไหนเป็น "ภาษาอังกฤษ"</div>
+  <p class="qa-a">เว็บคุณมี 2 ภาษา — /en/ และ /th/ แต่ตอนนี้ Google มองว่า 2 หน้าเดียวกัน (เช่น marine ภาษาไทย กับ marine ภาษาอังกฤษ) เป็น "เนื้อหาซ้ำกัน" — เพราะไม่มีป้ายบอกว่าเป็นเวอร์ชันแปล</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> Google อาจลงโทษ "duplicate content" → อันดับตกของทั้ง 2 เวอร์ชัน · ที่ควรเกิด คือ Google ช่วยส่ง user มาเวอร์ชันภาษาที่ถูก
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เพิ่มลิงก์เชื่อม (เรียก hreflang) ระหว่าง /en/ ↔ /th/ ของหน้าคู่กัน · 30 นาที · ทีม IT
+  </div>
+</div>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 5</div>
+  <div class="qa-q">3 หน้าใหญ่ไม่มี "หัวข้อหลัก" (H1)</div>
+  <p class="qa-a">หน้า /th/brands/ (รวมแบรนด์) · /th/applications/ (รวมงานอุตสาหกรรม) · /th/services/ (บริการ) — 3 หน้านี้ไม่มีหัวข้อใหญ่ในเนื้อหา</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> Google ไม่รู้ว่า "หน้านี้เกี่ยวกับอะไร" → จัดอันดับยาก · คนตาบอดที่ใช้ screen reader ก็เข้าใจยาก
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เพิ่มหัวข้อใหญ่ในเนื้อหา 3 หน้านี้ · 10 นาที · WordPress admin
+  </div>
+</div>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 6</div>
+  <div class="qa-q">2 หน้าไม่มีรูป preview ตอนแชร์ Facebook/LINE</div>
+  <p class="qa-a">หน้า /th/applications/ และ /th/services/ ขาด featured image — เมื่อ share ลิงก์ จะเห็นแค่ตัวหนังสือ ไม่มีภาพ</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> CTR ตอนคนเห็น share ใน timeline ตกฮวบ · share ที่มีรูป CTR สูงกว่าไม่มีรูป 2-5 เท่า
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เลือกรูปจาก media library หรือ upload ใหม่ ใส่เป็น featured image · 5 นาที · WordPress admin
+  </div>
+</div>
+
+<div class="card problem">
+  <div class="problem-num">ปัญหา 7</div>
+  <div class="qa-q">คำอธิบายหน้า Brands สั้นเกินไป (แค่ 10 ตัวอักษร)</div>
+  <p class="qa-a">หน้า /th/brands/ มีคำอธิบายหน้าเป็น "แบรนด์เด่น" — 10 ตัวอักษร · Google ต้องการ 140-160 ตัวอักษรเพื่อใช้แสดงใน search result</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> Google จะไม่ใช้ข้อความนี้ตอนแสดงผล → ระบบจะเลือกข้อความสุ่มจากหน้าเว็บเอง → ข้อความที่คนเห็นใน Google อาจจะไม่ดึงดูด → คลิกน้อย
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> เขียนคำอธิบาย 140-160 ตัวอักษร พูดถึงแบรนด์ที่จัดจำหน่าย + จุดเด่น · 5 นาที (มีร่างใน Discord แล้ว)
+  </div>
+</div>
+
+<h2>🟡 3 เรื่องควรปรับ — ไม่ใช่ปัญหาใหญ่แต่ขัดประสิทธิภาพ</h2>
+
+<div class="card warning">
+  <div class="warning-num">เรื่อง 8</div>
+  <div class="qa-q">ภาพในเว็บไม่มีคำอธิบาย (alt text) เกือบทั้งหมด</div>
+  <p class="qa-a">เว็บมีภาพประมาณ 80 ภาพ — ส่วนใหญ่ไม่มีคำอธิบายว่าภาพนั้นเป็นอะไร</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> ภาพไม่ขึ้นใน Google Image Search · คนตาบอดเข้าเว็บไม่รู้ว่าภาพคืออะไร · ความเร็วโหลดของหน้าก็ลดลงเล็กน้อย
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> ผมร่างคำอธิบายเป็นภาษาไทยสำหรับแต่ละภาพให้ได้ · คุณ paste เข้า WordPress · 30-60 นาที
+  </div>
+</div>
+
+<div class="card warning">
+  <div class="warning-num">เรื่อง 9</div>
+  <div class="qa-q">ชื่อหน้าสำหรับโพสต์ Facebook = ชื่อหน้าใน browser tab</div>
+  <p class="qa-a">ตอนนี้ระบบใช้ชื่อเดียวกันทั้ง browser tab และตอน share Facebook — แต่จริงๆ ทั้ง 2 ที่ควรเขียนต่างกัน เพราะ Facebook ต้องการชื่อที่ "ดึงดูด" มากกว่า "อธิบาย"</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> CTR ตอนแชร์ social ต่ำกว่าที่ควร · เสียโอกาส engage ลูกค้าผ่าน social
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> ใส่ชื่อหน้าแบบ "social-friendly" สำหรับ Facebook ใน Yoast/RankMath plugin · 15 นาที
+  </div>
+</div>
+
+<div class="card warning">
+  <div class="warning-num">เรื่อง 10</div>
+  <div class="qa-q">ชื่อหน้า 3 จาก 9 หน้าเป็นภาษาไทย — ที่เหลืออีก 6 ยัง EN</div>
+  <p class="qa-a">หน้า cement-mining, marine, printing ทำชื่อเป็นภาษาไทยดีอยู่แล้ว · แต่หน้าใหญ่ๆ เช่น Home, Brands, Services กลับยังเป็นอังกฤษ — แสดงว่าทีม content "ทำได้" แต่ "ยังไม่ทำครบ"</p>
+  <div class="impact">
+    <strong>ผลกระทบ:</strong> ดูเหมือนไม่จริงจังกับตลาดไทย · ลูกค้าค้นหาเจอน้อยกว่าศักยภาพ
+  </div>
+  <div class="fix">
+    <strong>วิธีแก้:</strong> ขยับชื่อหน้าทั้ง 6 ให้เป็นไทย (มีร่างใน Discord) · 15 นาที
+  </div>
+</div>
+
+<h2>🟢 6 เรื่องที่ทำดีอยู่แล้ว — รักษาไว้</h2>
+
+<div class="card good">
+  <ul>
+    <li>✅ <strong>เว็บแสดงผลบนมือถือดี</strong> — ตั้งค่า responsive ถูกต้อง</li>
+    <li>✅ <strong>URL ของแต่ละหน้าชัดเจน</strong> ไม่ซ้ำ (ปัญหา duplicate content ที่ตามมาได้)</li>
+    <li>✅ <strong>มี structured data 2 ชุดต่อหน้า</strong> (ข้อมูลที่ช่วย Google แสดงผลรวยขึ้น)</li>
+    <li>✅ <strong>Twitter card ตั้งค่าถูก</strong> ทำให้ share Twitter มี preview สวย</li>
+    <li>✅ <strong>ทุก 9 หน้าทำงานได้ปกติ</strong> ไม่มีลิงก์เสีย</li>
+    <li>✅ <strong>เชื่อมโยงภายในเว็บดี</strong> (100-140 ลิงก์ต่อหน้า) ช่วยให้ Google เก็บข้อมูลครบ</li>
+  </ul>
+</div>
+
+<h2>💡 ทำไมถึงเกิดปัญหานี้?</h2>
+
+<div class="card">
+  <p>เว็บไซต์น่าจะใช้ <strong>WordPress + plugin แปลภาษา</strong> (เช่น Polylang หรือ WPML) แต่ template (โครงหน้าเว็บ) ของ theme ที่ใช้อยู่ <strong>ฝัง "ภาษาอังกฤษ" เป็นค่าตายตัว</strong> — ไม่ได้ทำให้ template ปรับภาษาอัตโนมัติเมื่อเปลี่ยน /en/ ↔ /th/</p>
+  <p style="margin-top: 12px;"><strong>ข้อดี:</strong> แก้ที่ theme ครั้งเดียว = แก้ทั้งเว็บ ไม่ต้องไปแก้ทีละหน้า</p>
+</div>
+
+<h2>🎯 ลำดับความสำคัญ — แก้อะไรก่อน</h2>
+
+<div class="card priority">
+  <h3 style="margin-top: 0; color: var(--accent);">ทำวันนี้ — ผลลัพธ์ใหญ่ที่สุด · ใช้เวลารวม 1-2 ชั่วโมง</h3>
+  <div class="priority-row">
+    <div class="pri-num">1</div>
+    <div>
+      <div class="pri-title">เปลี่ยนป้ายภาษาจาก en-US เป็น th</div>
+      <div class="pri-meta">ทุก /th/ หน้า · ทีม IT · 15 นาที</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">2</div>
+    <div>
+      <div class="pri-title">เปลี่ยนป้าย og:locale จาก en_US เป็น th_TH</div>
+      <div class="pri-meta">ทุก /th/ หน้า · ทำพร้อมข้อ 1 · รวม 15 นาที</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">3</div>
+    <div>
+      <div class="pri-title">แปลชื่อหน้าเป็นไทย 6 หน้า</div>
+      <div class="pri-meta">Home, Brands, Yokohama, Ogura Clutch, Applications, Services · 15 นาที · มีร่างให้แล้ว</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">4</div>
+    <div>
+      <div class="pri-title">เพิ่มหัวข้อหลัก (H1) ใน 3 หน้า</div>
+      <div class="pri-meta">/th/brands/ · /th/applications/ · /th/services/ · 10 นาที</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">5</div>
+    <div>
+      <div class="pri-title">ใส่รูป featured image 2 หน้า</div>
+      <div class="pri-meta">/th/applications/ · /th/services/ · 5 นาที</div>
+    </div>
+  </div>
+</div>
+
+<div class="card priority">
+  <h3 style="margin-top: 0; color: var(--accent);">ทำในสัปดาห์นี้ — เก็บงานละเอียด · 2-4 ชั่วโมง</h3>
+  <div class="priority-row">
+    <div class="pri-num">6</div>
+    <div>
+      <div class="pri-title">เพิ่ม hreflang เชื่อม /en/ ↔ /th/</div>
+      <div class="pri-meta">Google จะรู้ว่าหน้าใดเป็นเวอร์ชันภาษาไหน · 30 นาที · ทีม IT</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">7</div>
+    <div>
+      <div class="pri-title">เพิ่มคำอธิบายภาพไทยให้ ~80 ภาพ</div>
+      <div class="pri-meta">ผมเตรียมร่างให้ · คุณ paste · 30-60 นาที</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">8</div>
+    <div>
+      <div class="pri-title">เขียนคำอธิบายหน้า Brands ให้ยาวขึ้น</div>
+      <div class="pri-meta">จาก 10 ตัวอักษร → 150 ตัวอักษร · 5 นาที · มีร่างให้</div>
+    </div>
+  </div>
+</div>
+
+<div class="card priority">
+  <h3 style="margin-top: 0; color: var(--accent);">ตามสะดวก — งาน polish</h3>
+  <div class="priority-row">
+    <div class="pri-num">9</div>
+    <div>
+      <div class="pri-title">เขียนชื่อหน้าสำหรับ social ให้ต่างจาก browser title</div>
+      <div class="pri-meta">เพิ่ม CTR ตอนแชร์ social · 15 นาที</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">10</div>
+    <div>
+      <div class="pri-title">ตรวจสอบความเร็วเว็บ (Core Web Vitals)</div>
+      <div class="pri-meta">ใช้ Google Lighthouse · ฟรี</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">11</div>
+    <div>
+      <div class="pri-title">ถ่ายภาพ screenshot ทุกหน้าบนมือถือ</div>
+      <div class="pri-meta">เช็คการแสดงผลบน iPhone / Android · 30 นาที</div>
+    </div>
+  </div>
+  <div class="priority-row">
+    <div class="pri-num">12</div>
+    <div>
+      <div class="pri-title">เพิ่ม structured data ละเอียดขึ้น</div>
+      <div class="pri-meta">บอก Google ว่าหน้าใดเป็น Product / Service / Organization</div>
+    </div>
+  </div>
+</div>
+
+<h2>📊 ตารางรวม — แต่ละหน้ามีปัญหาอะไรบ้าง</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>หน้า</th>
+      <th>ชื่อ Tab</th>
+      <th>ป้ายภาษา</th>
+      <th>หัวข้อหลัก</th>
+      <th>รูป preview</th>
+      <th>ภาพไม่มีคำอธิบาย</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>หน้าหลัก /th/</td><td>🇬🇧 EN</td><td>en-US</td><td>✅</td><td>✅</td><td>18 จาก 20</td></tr>
+    <tr><td>รวมแบรนด์ /th/brands/</td><td>🇬🇧 EN</td><td>en-US</td><td>❌</td><td>✅</td><td>18 จาก 20</td></tr>
+    <tr><td>Yokohama</td><td>🇬🇧 EN</td><td>en-US</td><td>✅</td><td>✅</td><td>4 จาก 9</td></tr>
+    <tr><td>Ogura Clutch</td><td>🇬🇧 EN</td><td>en-US</td><td>✅</td><td>✅</td><td>4 จาก 5</td></tr>
+    <tr><td>รวมงานอุตสาหกรรม</td><td>🇬🇧 EN</td><td>en-US</td><td>❌</td><td>❌</td><td>4 จาก 4</td></tr>
+    <tr><td>ปูนซีเมนต์ & เหมืองแร่</td><td>🇹🇭 TH ✅</td><td>en-US</td><td>❌</td><td>✅</td><td>5 จาก 6</td></tr>
+    <tr><td>เดินเรือ</td><td>🇹🇭 TH ✅</td><td>en-US</td><td>✅</td><td>✅</td><td>6 จาก 6</td></tr>
+    <tr><td>สิ่งพิมพ์</td><td>🇹🇭 TH ✅</td><td>en-US</td><td>✅</td><td>✅</td><td>6 จาก 6</td></tr>
+    <tr><td>บริการ</td><td>🇬🇧 EN</td><td>en-US</td><td>❌</td><td>❌</td><td>4 จาก 4</td></tr>
+  </tbody>
+</table>
+
+<h2>🎯 ขั้นตอนต่อไป</h2>
+
+<div class="card">
+  <ol>
+    <li>คุณ <strong>เลือกข้อที่จะแก้</strong> (แนะนำเริ่ม ข้อ 1-5)</li>
+    <li>ผม <strong>เตรียมข้อความ + ร่าง</strong> ทุกอย่างให้</li>
+    <li>ทีม IT/admin <strong>copy-paste เข้า WordPress</strong></li>
+    <li>หลังแก้เสร็จ — ผม <strong>ตรวจซ้ำ</strong> ทุกหน้าให้ คาดว่า SEO score เพิ่มขึ้นอย่างชัดเจนภายใน 2-4 สัปดาห์ที่ Google เก็บข้อมูลใหม่</li>
+  </ol>
+</div>
+
+<footer>
+  รายงานนี้สร้าง 5 มิถุนายน 2026 · <strong>Ken Oracle 🤲</strong> — Quiet Hand<br>
+  สำหรับเวอร์ชันเทคนิค (developer) ดูที่ <a href="audit-rikind-th.html">audit-rikind-th.html</a>
+</footer>
+
+</div>
+</body>
+</html>
